@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Extended Checkbox Selection
 // @namespace    https://github.com/
-// @version      0.3.0
-// @description  Ctrl+click (or Ctrl+Space) on a checkbox sets every checkbox between it and the last normally-clicked checkbox (in tab order) to the state of that last normally-clicked checkbox.
+// @version      0.4.0
+// @description  Ctrl+click (Option+click on macOS), or Ctrl/Option+Space, on a checkbox sets every checkbox between it and the last normally-clicked checkbox (in tab order) to the state of that last normally-clicked checkbox.
 // @match        *://*/*
 // @run-at       document-start
 // @noframes
@@ -10,6 +10,8 @@
 // ==/UserScript==
 
 /*
+ * MODIFIER KEY: Ctrl on Windows/Linux, Option on macOS. The rest of this comment says "Ctrl" for both.
+ *
  * BEHAVIOR
  * - "Checkbox" = <input type="checkbox"> or any element with role="checkbox".
  * - A click (mouse, touch, or keyboard activation) on a checkbox WITHOUT Ctrl records that checkbox and the
@@ -47,9 +49,14 @@
  *
  * LIMITATIONS
  * - Ctrl+click on macOS (Chrome/Safari/Firefox) is a right-click and fires "contextmenu" instead of "click",
- *   so it does not work there; Cmd is deliberately not used. Ctrl+Space may be claimed by the OS/IME (e.g.
- *   input-source switching) on some systems. Touch-only devices have no Ctrl key.
- * - Only Ctrl alone is recognised; Ctrl combined with Shift/Alt/Meta (incl. AltGr) is a normal click.
+ *   so on macOS (detected via navigator.userAgentData.platform / navigator.platform) the script uses Option
+ *   (Alt) instead of Ctrl everywhere "Ctrl" is mentioned in this file (Option+click, Option+Space); Ctrl is not
+ *   recognised there. Option+Space is reported with code "Space" (its key value is a non-breaking space), which
+ *   is what the script checks; it may be claimed by some other macOS tools. iPadOS reports a Mac platform, so
+ *   it uses Option as well. Touch-only devices have no modifier key. Ctrl+Space may be claimed by the OS/IME
+ *   (e.g. input-source switching) on Windows/Linux.
+ * - Only the platform's modifier alone is recognised; combined with other modifiers (incl. AltGr) it is a
+ *   normal click.
  * - The script must run before page scripts to intercept reliably (@run-at document-start). A page that
  *   registered a window-level capture listener earlier, or that acts on mousedown/pointerdown/pointerup instead
  *   of click, can still react to a Ctrl+click on the target checkbox; only the "click" event (and, for
@@ -83,15 +90,19 @@
 (function () {
   'use strict';
 
+  // The modifier is Ctrl, except on macOS where Ctrl+click is a right-click, so Option (Alt) is used instead.
+  const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  const IS_MAC = /mac/i.test(platform);
+  const MOD = IS_MAC ? 'Option' : 'Ctrl';
+
   console.info(
     '%cExtended Checkbox Selection userscript is running.\n' +
       '%cSelect a range of checkboxes:\n' +
       '%c1. Click (or press Space on) a checkbox normally; its new state is remembered.\n' +
-      '2. Hold %cCtrl%c and click (or press %cCtrl+Space%c on) another checkbox: every checkbox between them in tab order ' +
+      `2. Hold %c${MOD}%c and click (or press %c${MOD}+Space%c on) another checkbox: every checkbox between them in tab order ` +
       'is set to the remembered state.\n' +
-      '3. Ctrl+click the same checkbox again to toggle the whole range, including both ends; repeat to keep toggling.\n' +
-      '4. A normal click on any checkbox starts a new selection. Reloading the page clears it.\n' +
-      '\n%cLimitation: Ctrl+click does not work on macOS (it is a right-click there).',
+      `3. ${MOD}+click the same checkbox again to toggle the whole range, including both ends; repeat to keep toggling.\n` +
+      '4. A normal click on any checkbox starts a new selection. Reloading the page clears it.',
     'font-size: 1.5em; color: white; background-color: black;',
     'font-size: 1.2em;',
     'font-family: system-ui; font-size: 1.2em;',
@@ -99,7 +110,6 @@
     'font-family: system-ui; font-size: 1.2em;',
     'font-weight: bold; font-size: 1.2em;',
     'font-family: system-ui; font-size: 1.2em;',
-    'color: red; font-size: 1.2em',
   );
 
   const CHECKBOX_SELECTOR = 'input[type="checkbox" i], [role~="checkbox" i]';
@@ -135,7 +145,10 @@
   }
 
   const isSpace = (e) => e.key === ' ' || e.code === 'Space';
-  const isPlainCtrl = (e) => e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey;
+  const isPlainCtrl = IS_MAC
+    ? (e) => e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey
+    : (e) => e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey;
+  const modHeld = IS_MAC ? (e) => e.altKey : (e) => e.ctrlKey;
 
   function suppress(e) {
     e.preventDefault();
@@ -304,7 +317,7 @@
     }
 
     // Native checkboxes produce a trusted click on Space, handled by onClick.
-    recorded.pendingKey = isNative(el) ? null : { el, before: readState(el), ctrl: e.ctrlKey };
+    recorded.pendingKey = isNative(el) ? null : { el, before: readState(el), ctrl: modHeld(e) };
   }
 
   function onKeyPress(e) {

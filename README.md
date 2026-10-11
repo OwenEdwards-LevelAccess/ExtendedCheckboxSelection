@@ -13,6 +13,8 @@ Currently the script has `@match *://*/*`, so it runs on every page (top-level f
 
 ## Usage
 
+The modifier key is **Ctrl** on Windows/Linux and **Option (⌥)** on macOS (Ctrl+click is a right-click on macOS, so it can't be used there). The steps below say "Ctrl"; substitute Option on a Mac.
+
 1. **Set the starting point.** Click a checkbox normally (mouse, touch, or Space). The script remembers which checkbox it was and the state it changed to (checked or unchecked).
 2. **Select a range.** Hold **Ctrl** and click another checkbox, or focus it and press **Ctrl+Space**. Every checkbox between the two, in keyboard tab order, is set to the remembered state. The range includes the Ctrl+clicked checkbox but not the starting one. It works in either direction. The checkboxes are changed using click events, so the page's own click handlers still run.
 3. **Extend or shrink.** Ctrl+click another checkbox. The starting point does not change, so the range is recalculated from it.
@@ -23,8 +25,8 @@ If you Ctrl+click a checkbox with no starting point recorded, or on the starting
 
 ## Limitations
 
-- On macOS, Ctrl+click is a right-click and does not trigger the feature. Ctrl+Space may be claimed by the operating system on some systems.
-- Only Ctrl on its own is recognised (not combined with Shift, Alt, or Meta).
+- On macOS only Option is recognised (Ctrl is not), and Option+Space may be claimed by other tools. On Windows/Linux, Ctrl+Space may be claimed by the operating system (for example input-source switching).
+- Only the modifier on its own is recognised (not combined with Shift or other modifiers).
 - Tab order is based on [ANDI](https://github.com/SSAgov/ANDI)'s definition of tabbable elements, ordered like the browser (positive `tabindex` first). Checkboxes that are not tabbable (for example `tabindex="-1"`, hidden, or a custom checkbox with no `tabindex`) cannot be part of a range. Disabled checkboxes are skipped.
 - Mixed (`aria-checked="mixed"`) states cannot be propagated.
 - Pages that update checkbox state asynchronously, or that react to `mousedown`/`pointerup` instead of `click`, may behave unexpectedly.
