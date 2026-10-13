@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         Extended Checkbox Selection
 // @namespace    https://github.com/
-// @version      0.6.0
+// @version      0.7.1
 // @description  Ctrl+click (Option+click on macOS), or Ctrl/Option+Space, on a checkbox sets every checkbox between it and the last normally-clicked checkbox (in tab order) to the state of that last normally-clicked checkbox.
+// @author       Owen Edwards
 // @icon         data:image/png;base64,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
 // @downloadURL  https://raw.githubusercontent.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/main/ExtendedCheckboxSelection.js
 // @updateURL    https://raw.githubusercontent.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/main/ExtendedCheckboxSelection.js
@@ -50,7 +51,22 @@
  * follows the browser: positive tabindex values ascending first (ties in DOM order), then everything else
  * in DOM order.
  *
+ * GEOMETRIC LINE INTERSECTION FILTER
+ * - In addition to being between the initial and second checkbox in tab order, each intermediate checkbox must
+ *   spatially intersect an imaginary line segment drawn between the center of the clickable area of the initial
+ *   checkbox and the center of the clickable area of the second checkbox.
+ * - The clickable area of each checkbox is defined as the union of the checkbox element itself and any associated
+ *   visible <label> elements (accounting for visually-hidden inputs and associated labels).
+ * - A 3-pixel tolerance buffer is applied around each checkbox's clickable area bounding box when testing for
+ *   intersection with the line segment.
+ * - Checkboxes in the tab-order slice that do not intersect this buffered line (e.g. controls in adjacent columns
+ *   or sidebars interleaved in tab order) are skipped.
+ *
  * LIMITATIONS
+ * - Geometric intersection limitations: line centers and bounding boxes are evaluated in current viewport
+ *   coordinates at the moment of the Ctrl+click. If checkboxes are inside separate independently-scrollable
+ *   containers, relative positions reflect current visual rendering. Very long multi-line labels expand the
+ *   clickable bounding box and its center accordingly.
  * - Ctrl+click on macOS (Chrome/Safari/Firefox) is a right-click and fires "contextmenu" instead of "click",
  *   so on macOS (detected via navigator.userAgentData.platform / navigator.platform) the script uses Option
  *   (Alt) instead of Ctrl everywhere "Ctrl" is mentioned in this file (Option+click, Option+Space); Ctrl is not
@@ -198,6 +214,110 @@
     return positive.concat(rest);
   }
 
+  // ---- Spatial / Line Intersection ----
+
+  function getAssociatedLabels(el) {
+    const labels = new Set();
+    if (el.labels) {
+      for (const l of el.labels) labels.add(l);
+    }
+    if (el.id) {
+      try {
+        const root = el.getRootNode ? el.getRootNode() : document;
+        const escaped = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(el.id) : el.id.replace(/(["\\])/g, '\\$1');
+        const byFor = (root.querySelectorAll ? root : document).querySelectorAll(`label[for="${escaped}"]`);
+        for (const l of byFor) labels.add(l);
+      } catch (_) {}
+    }
+    const parentLabel = el.closest ? el.closest('label') : null;
+    if (parentLabel && (!parentLabel.htmlFor || parentLabel.htmlFor === el.id)) {
+      labels.add(parentLabel);
+    }
+    return Array.from(labels).filter(isVisible);
+  }
+
+  function getClickableBox(el) {
+    const rects = [];
+    const elRect = el.getBoundingClientRect();
+    const labels = getAssociatedLabels(el);
+    const labelRects = [];
+    for (const lbl of labels) {
+      const r = lbl.getBoundingClientRect();
+      if (r.width > 0 || r.height > 0) labelRects.push(r);
+    }
+
+    if (elRect.width > 0 || elRect.height > 0) {
+      // If it's a 1x1 visually hidden input and we have a visible label, prefer the label's dimensions
+      if (!(elRect.width <= 1 && elRect.height <= 1 && labelRects.length > 0)) {
+        rects.push(elRect);
+      }
+    }
+    for (const r of labelRects) rects.push(r);
+    if (rects.length === 0) rects.push(elRect);
+
+    let left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
+    for (const r of rects) {
+      if (r.left < left) left = r.left;
+      if (r.top < top) top = r.top;
+      if (r.right > right) right = r.right;
+      if (r.bottom > bottom) bottom = r.bottom;
+    }
+
+    return {
+      left,
+      top,
+      right,
+      bottom,
+      width: right - left,
+      height: bottom - top,
+    };
+  }
+
+  function getCenter(el) {
+    const box = getClickableBox(el);
+    return {
+      x: box.left + box.width / 2,
+      y: box.top + box.height / 2,
+    };
+  }
+
+  function segmentIntersectsBox(p1, p2, box, buffer = 3) {
+    const xMin = box.left - buffer;
+    const xMax = box.right + buffer;
+    const yMin = box.top - buffer;
+    const yMax = box.bottom + buffer;
+
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
+
+    let tMinX = -Infinity;
+    let tMaxX = Infinity;
+    if (dx === 0) {
+      if (p1.x < xMin || p1.x > xMax) return false;
+    } else {
+      const tx1 = (xMin - p1.x) / dx;
+      const tx2 = (xMax - p1.x) / dx;
+      tMinX = Math.min(tx1, tx2);
+      tMaxX = Math.max(tx1, tx2);
+    }
+
+    let tMinY = -Infinity;
+    let tMaxY = Infinity;
+    if (dy === 0) {
+      if (p1.y < yMin || p1.y > yMax) return false;
+    } else {
+      const ty1 = (yMin - p1.y) / dy;
+      const ty2 = (yMax - p1.y) / dy;
+      tMinY = Math.min(ty1, ty2);
+      tMaxY = Math.max(ty1, ty2);
+    }
+
+    const tEnter = Math.max(0, tMinX, tMinY);
+    const tExit = Math.min(1, tMaxX, tMaxY);
+
+    return tEnter <= tExit;
+  }
+
   // Handles a Ctrl action on `second`. Returns false if it must be treated as a normal click; otherwise
   // schedules the range change (after the current event) and returns true.
   function handleCtrl(second) {
@@ -218,7 +338,16 @@
     const hi = Math.max(i1, i2);
     // First application excludes the initial checkbox; a repeat (toggle) includes both ends.
     const slice = toggle ? order.slice(lo, hi + 1) : i1 < i2 ? order.slice(i1 + 1, i2 + 1) : order.slice(i2, i1);
-    const list = slice.filter((el) => el.matches(CHECKBOX_SELECTOR));
+    const candidates = slice.filter((el) => el.matches(CHECKBOX_SELECTOR));
+
+    const p1 = getCenter(init.el);
+    const p2 = getCenter(second);
+    const list = candidates.filter((el) => {
+      if (el === init.el || el === second) return true;
+      const box = getClickableBox(el);
+      return segmentIntersectsBox(p1, p2, box, 3);
+    });
+
     recorded.lastSecond = second;
     defer(() => {
       applyRange(list, target);

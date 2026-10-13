@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Extended Checkbox Selection - Table Test</title>
+  <script src="./ExtendedCheckboxSelection.js"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 2rem;
+      color: #202124;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    p.description {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: #5f6368;
+      max-width: 800px;
+      line-height: 1.5;
+    }
+
+    table {
+      border-collapse: collapse;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #dadce0;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    thead th {
+      background-color: #1a73e8;
+      color: #ffffff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    tbody th[scope="row"] {
+      background-color: #f1f3f4;
+      font-weight: 600;
+      color: #3c4043;
+    }
+
+    tbody tr:hover {
+      background-color: #f8fafd;
+    }
+
+    .cell-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    input[type="checkbox"] {
+      width: 1.15rem;
+      height: 1.15rem;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    label {
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inventory Auditing Checklist</h1>
+  <p class="description">
+    Test page for <strong>Extended Checkbox Selection</strong>. Click any checkbox to set the starting anchor, then hold <strong>Ctrl</strong> (or <strong>Option</strong> on macOS) and click another checkbox to set the range. Repeat the Ctrl+click on the same end checkbox to toggle the entire range.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Department</th>
+        <th scope="col">Electronics</th>
+        <th scope="col">Apparel</th>
+        <th scope="col">Office Supplies</th>
+        <th scope="col">Home Goods</th>
+        <th scope="col">Outdoor Gear</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-1">
+            <label for="cb-1-1">Regional HQ</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-2">
+            <label for="cb-1-2">Smartphones</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-3">
+            <label for="cb-1-3">Windbreakers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-4">
+            <label for="cb-1-4">Gel Pens</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-5">
+            <label for="cb-1-5">Desk Lamps</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-1-6">
+            <label for="cb-1-6">Hiking Boots</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-1">
+            <label for="cb-2-1">North Warehouse</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-2">
+            <label for="cb-2-2">Tablets</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-3">
+            <label for="cb-2-3">Denim Jeans</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-4">
+            <label for="cb-2-4">Staplers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-5">
+            <label for="cb-2-5">Throw Blankets</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-2-6">
+            <label for="cb-2-6">Sleeping Bags</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-1">
+            <label for="cb-3-1">South Hub</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-2">
+            <label for="cb-3-2">Noise-canceling Headphones</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-3">
+            <label for="cb-3-3">Fleece Hoodies</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-4">
+            <label for="cb-3-4">Printer Paper</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-5">
+            <label for="cb-3-5">Coffee Mugs</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-3-6">
+            <label for="cb-3-6">Trekking Poles</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-1">
+            <label for="cb-4-1">East Depot</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-2">
+            <label for="cb-4-2">Wireless Mice</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-3">
+            <label for="cb-4-3">Cargo Shorts</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-4">
+            <label for="cb-4-4">Dry-erase Markers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-5">
+            <label for="cb-4-5">Wall Clocks</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-4-6">
+            <label for="cb-4-6">Hydration Packs</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-1">
+            <label for="cb-5-1">West Station</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-2">
+            <label for="cb-5-2">Mechanical Keyboards</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-3">
+            <label for="cb-5-3">Rain Ponchos</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-4">
+            <label for="cb-5-4">Paperclips</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-5">
+            <label for="cb-5-5">Ceramic Vases</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-5-6">
+            <label for="cb-5-6">Camping Tents</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-1">
+            <label for="cb-6-1">Central Facility</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-2">
+            <label for="cb-6-2">4K Monitors</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-3">
+            <label for="cb-6-3">Cotton T-Shirts</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-4">
+            <label for="cb-6-4">Manila Folders</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-5">
+            <label for="cb-6-5">Cushion Covers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-6-6">
+            <label for="cb-6-6">LED Lanterns</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-1">
+            <label for="cb-7-1">Airport Terminal Center</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-2">
+            <label for="cb-7-2">USB-C Hubs</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-3">
+            <label for="cb-7-3">Thermal Socks</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-4">
+            <label for="cb-7-4">Desktop Scissors</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-5">
+            <label for="cb-7-5">Picture Frames</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-7-6">
+            <label for="cb-7-6">Camp Stoves</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-1">
+            <label for="cb-8-1">Harbor Logistics</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-2">
+            <label for="cb-8-2">Webcams</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-3">
+            <label for="cb-8-3">Baseball Caps</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-4">
+            <label for="cb-8-4">Sticky Notes</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-5">
+            <label for="cb-8-5">Scented Candles</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-8-6">
+            <label for="cb-8-6">Climbing Carabiners</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-1">
+            <label for="cb-9-1">Metro Outpost</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-2">
+            <label for="cb-9-2">Bluetooth Speakers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-3">
+            <label for="cb-9-3">Leather Belts</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-4">
+            <label for="cb-9-4">Correction Tape</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-5">
+            <label for="cb-9-5">Coaster Sets</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-9-6">
+            <label for="cb-9-6">Insulated Flasks</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-1">
+            <label for="cb-10-1">Suburban Annex</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-2">
+            <label for="cb-10-2">Power Banks</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-3">
+            <label for="cb-10-3">Running Shoes</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-4">
+            <label for="cb-10-4">Spiral Notebooks</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-5">
+            <label for="cb-10-5">Kitchen Timers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-10-6">
+            <label for="cb-10-6">Compact Binoculars</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-1">
+            <label for="cb-11-1">Crossdock Terminal</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-2">
+            <label for="cb-11-2">Smart Watches</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-3">
+            <label for="cb-11-3">Polo Shirts</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-4">
+            <label for="cb-11-4">File Organizers</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-5">
+            <label for="cb-11-5">Door Mats</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-11-6">
+            <label for="cb-11-6">Dry Bags</label>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-1">
+            <label for="cb-12-1">Downtown Branch</label>
+          </div>
+        </th>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-2">
+            <label for="cb-12-2">External SSDs</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-3">
+            <label for="cb-12-3">Wool Scarves</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-4">
+            <label for="cb-12-4">Pencil Sharpeners</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-5">
+            <label for="cb-12-5">Wall Mirrors</label>
+          </div>
+        </td>
+        <td>
+          <div class="cell-content">
+            <input type="checkbox" id="cb-12-6">
+            <label for="cb-12-6">Hammocks</label>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
