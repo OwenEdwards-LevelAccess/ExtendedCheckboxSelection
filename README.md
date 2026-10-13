@@ -6,7 +6,7 @@ A Tampermonkey userscript that adds range selection to checkboxes on web pages, 
 
 1. Install the [Tampermonkey](https://www.tampermonkey.net/) extension in your browser.
 2. Go to **Tampermonkey** > **Dashboard** and select the **Utilities** tab.
-3. Paste `https://raw.githubusercontent.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/main/ExtendedCheckboxSelection.js` into the **Import from URL** field and click the **Install** button.
+3. Paste [https://raw.githubusercontent.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/main/ExtendedCheckboxSelection.js](https://raw.githubusercontent.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/main/ExtendedCheckboxSelection.js) into the **Import from URL** field and click the **Install** button.
 4. When prompted by Tampermonkey, confirm the installation.
 5. Reload any web page you want to use it on.
 
