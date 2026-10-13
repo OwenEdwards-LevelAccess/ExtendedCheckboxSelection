@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Extended Checkbox Selection
 // @namespace    https://github.com/
-// @version      0.8.1
+// @version      0.8.2
 // @description  Ctrl+click (Option+click on macOS), or Ctrl/Option+Space, on a checkbox sets every checkbox between it and the last normally-clicked checkbox (in tab order) to the state of that last normally-clicked checkbox.
 // @author       Owen Edwards
 // @icon         data:image/png;base64,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
@@ -53,10 +53,9 @@
  *
  * GEOMETRIC RECTANGLE INTERSECTION FILTER
  * - In addition to being between the initial and second checkbox in tab order, each intermediate checkbox must
- *   spatially intersect an axis-aligned rectangle (edges parallel to the X and Y axes) whose opposite corners are
- *   the center of the clickable area of the initial checkbox and the center of the clickable area of the second
- *   checkbox. If the two checkboxes are horizontally or vertically aligned, the rectangle degenerates to a line
- *   segment between the centers.
+ *   spatially intersect the smallest axis-aligned rectangle (edges parallel to the X and Y axes) that encloses
+ *   the clickable areas of both the initial and the second checkbox. If the two checkboxes are in the same row or
+ *   column, the rectangle is just that row or column band.
  * - The clickable area of each checkbox is defined as the union of the checkbox element itself and any associated
  *   visible <label> elements (accounting for visually-hidden inputs and associated labels).
  * - A 3-pixel tolerance buffer is applied around each checkbox's clickable area bounding box when testing for
@@ -65,10 +64,10 @@
  *   or sidebars interleaved in tab order) are skipped.
  *
  * LIMITATIONS
- * - Geometric intersection limitations: centers and bounding boxes are evaluated in current viewport
+ * - Geometric intersection limitations: bounding boxes are evaluated in current viewport
  *   coordinates at the moment of the Ctrl+click. If checkboxes are inside separate independently-scrollable
  *   containers, relative positions reflect current visual rendering. Very long multi-line labels expand the
- *   clickable bounding box and its center accordingly.
+ *   clickable bounding box accordingly.
  * - Rectangular selection works as expected only when the two reference checkboxes are at opposite top-left
  *   and bottom-right corners (in either order). Because only checkboxes between them in tab order are
  *   considered, selecting the top-right and bottom-left corners (in either order) misses checkboxes
@@ -279,21 +278,13 @@
     };
   }
 
-  function getCenter(el) {
-    const box = getClickableBox(el);
-    return {
-      x: box.left + box.width / 2,
-      y: box.top + box.height / 2,
-    };
-  }
-
-  // Tests whether `box` (expanded by `buffer`) overlaps the axis-aligned rectangle spanning centers p1 and p2.
-  function rectIntersectsBox(p1, p2, box, buffer = 3) {
+  // Tests whether `box` (expanded by `buffer`) overlaps `rect`.
+  function rectIntersectsBox(rect, box, buffer = 3) {
     return (
-      box.right + buffer >= Math.min(p1.x, p2.x) &&
-      box.left - buffer <= Math.max(p1.x, p2.x) &&
-      box.bottom + buffer >= Math.min(p1.y, p2.y) &&
-      box.top - buffer <= Math.max(p1.y, p2.y)
+      box.right + buffer >= rect.left &&
+      box.left - buffer <= rect.right &&
+      box.bottom + buffer >= rect.top &&
+      box.top - buffer <= rect.bottom
     );
   }
 
@@ -319,12 +310,18 @@
     const slice = toggle ? order.slice(lo, hi + 1) : i1 < i2 ? order.slice(i1 + 1, i2 + 1) : order.slice(i2, i1);
     const candidates = slice.filter((el) => el.matches(CHECKBOX_SELECTOR));
 
-    const p1 = getCenter(init.el);
-    const p2 = getCenter(second);
+    const b1 = getClickableBox(init.el);
+    const b2 = getClickableBox(second);
+    const rect = {
+      left: Math.min(b1.left, b2.left),
+      right: Math.max(b1.right, b2.right),
+      top: Math.min(b1.top, b2.top),
+      bottom: Math.max(b1.bottom, b2.bottom),
+    };
     const list = candidates.filter((el) => {
       if (el === init.el || el === second) return true;
       const box = getClickableBox(el);
-      return rectIntersectsBox(p1, p2, box, 3);
+      return rectIntersectsBox(rect, box, 3);
     });
 
     recorded.lastSecond = second;
