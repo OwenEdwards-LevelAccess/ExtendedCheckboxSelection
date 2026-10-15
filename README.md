@@ -26,6 +26,12 @@ The modifier key is **Ctrl** on Windows/Linux and **Option (⌥)** on macOS (Ctr
 
 If you Ctrl+click a checkbox with no starting point recorded, or on the starting checkbox itself, it is treated as a normal click and becomes the starting point.
 
+## Sandbox
+
+There's a "sandbox" web page where you can try this feature out (you don't even need to install the userscript into TamperMonkey - the page loads the feature itself).
+
+[Extended Checkbox Selection - Table Test](https://html-preview.github.io/?url=https://github.com/OwenEdwards-LevelAccess/ExtendedCheckboxSelection/blob/main/test_table.html)
+
 ## Limitations
 
 - On macOS only Option is recognised (Ctrl is not), and Option+Space may be claimed by other tools. On Windows/Linux, Ctrl+Space may be claimed by the operating system (for example input-source switching).
