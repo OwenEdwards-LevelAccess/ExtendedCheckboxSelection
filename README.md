@@ -26,6 +26,10 @@ The modifier key is **Ctrl** on Windows/Linux and **Option (⌥)** on macOS (Ctr
 
 If you Ctrl+click a checkbox with no starting point recorded, or on the starting checkbox itself, it is treated as a normal click and becomes the starting point.
 
+### Visible demo mode
+
+Hold **Shift** together with Ctrl (or Option) when you click or press Space. It does the same range selection, and also shows a visible highlight of the rectangle used for the geometric filter. The rectangle appears on mouse down / key down and disappears on mouse up / Space release.
+
 ## Sandbox
 
 There's a "sandbox" web page where you can try this feature out (you don't even need to install the userscript into TamperMonkey - the page loads the feature itself).
@@ -35,7 +39,7 @@ There's a "sandbox" web page where you can try this feature out (you don't even 
 ## Limitations
 
 - On macOS only Option is recognised (Ctrl is not), and Option+Space may be claimed by other tools. On Windows/Linux, Ctrl+Space may be claimed by the operating system (for example input-source switching).
-- Only the modifier on its own is recognised (not combined with Shift or other modifiers).
+- Only the modifier on its own is recognised (not combined with other modifiers), except Shift + the modifier, which activates the visible demo mode described above.
 - Tab order is based on [ANDI](https://github.com/SSAgov/ANDI)'s definition of tabbable elements, ordered like the browser (positive `tabindex` first). Checkboxes that are not tabbable (for example `tabindex="-1"`, hidden, or a custom checkbox with no `tabindex`) cannot be part of a range. Disabled checkboxes are skipped.
 - Geometric rectangle filtering calculates coordinates in the current viewport at the moment of the Ctrl+click. Checkboxes in separate independently-scrolled containers or columns that do not intersect the rectangle enclosing both endpoints are excluded.
 - Rectangular selection works as expected only when the two reference checkboxes are at opposite top-left and bottom-right corners (in either order). Because only checkboxes between them in tab order are considered, selecting the top-right and bottom-left corners (in either order) misses checkboxes in the rectangle that fall outside that tab-order range.

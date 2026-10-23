@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Extended Checkbox Selection
 // @namespace    https://github.com/
-// @version      0.8.2
+// @version      0.9.0
 // @description  Ctrl+click (Option+click on macOS), or Ctrl/Option+Space, on a checkbox sets every checkbox between it and the last normally-clicked checkbox (in tab order) to the state of that last normally-clicked checkbox.
 // @author       Owen Edwards
 // @icon         data:image/png;base64,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
@@ -80,7 +80,9 @@
  *   it uses Option as well. Touch-only devices have no modifier key. Ctrl+Space may be claimed by the OS/IME
  *   (e.g. input-source switching) on Windows/Linux.
  * - Only the platform's modifier alone is recognised; combined with other modifiers (incl. AltGr) it is a
- *   normal click.
+ *   normal click. The exception is Shift + the modifier, which activates a "visual demo" mode: it does the same 
+ *   range selection, and also shows a visible highlight of the rectangle used for the geometric filter. The 
+ *   rectangle appears on mouse down / key down and disappears on mouse up / Space release.
  * - The script must run before page scripts to intercept reliably (@run-at document-start). A page that
  *   registered a window-level capture listener earlier, or that acts on mousedown/pointerdown/pointerup instead
  *   of click, can still react to a Ctrl+click on the target checkbox; only the "click" event (and, for
@@ -172,6 +174,9 @@
   const isPlainCtrl = IS_MAC
     ? (e) => e.altKey && !e.ctrlKey && !e.shiftKey && !e.metaKey
     : (e) => e.ctrlKey && !e.shiftKey && !e.altKey && !e.metaKey;
+  const isDemoCtrl = IS_MAC
+    ? (e) => e.altKey && e.shiftKey && !e.ctrlKey && !e.metaKey
+    : (e) => e.ctrlKey && e.shiftKey && !e.altKey && !e.metaKey;
   const modHeld = IS_MAC ? (e) => e.altKey : (e) => e.ctrlKey;
 
   function suppress(e) {
@@ -288,6 +293,47 @@
     );
   }
 
+  // Smallest axis-aligned rectangle enclosing the clickable areas of both checkboxes.
+  function getRangeRect(a, b) {
+    const b1 = getClickableBox(a);
+    const b2 = getClickableBox(b);
+    return {
+      left: Math.min(b1.left, b2.left),
+      right: Math.max(b1.right, b2.right),
+      top: Math.min(b1.top, b2.top),
+      bottom: Math.max(b1.bottom, b2.bottom),
+    };
+  }
+
+  // ---- Demo overlay (Shift + modifier) ----
+
+  let demoOverlay = null;
+
+  function showDemo(second) {
+    const init = recorded.initial;
+    if (!init || init.checked === null || !init.el.isConnected || init.el === second) return;
+    const order = getTabOrder();
+    if (order.indexOf(init.el) < 0 || order.indexOf(second) < 0) return;
+    const r = getRangeRect(init.el, second);
+    if (!demoOverlay) {
+      demoOverlay = document.createElement('div');
+      demoOverlay.setAttribute('aria-hidden', 'true');
+      demoOverlay.style.cssText =
+        'position:fixed;pointer-events:none;z-index:2147483647;box-sizing:border-box;margin:0;padding:0;' +
+        'background:rgba(128,0,200,0.4);border:3px solid #fff;';
+    }
+    const s = demoOverlay.style;
+    s.left = `${r.left}px`;
+    s.top = `${r.top}px`;
+    s.width = `${r.right - r.left}px`;
+    s.height = `${r.bottom - r.top}px`;
+    if (!demoOverlay.isConnected) document.documentElement.appendChild(demoOverlay);
+  }
+
+  function hideDemo() {
+    if (demoOverlay) demoOverlay.remove();
+  }
+
   // Handles a Ctrl action on `second`. Returns false if it must be treated as a normal click; otherwise
   // schedules the range change (after the current event) and returns true.
   function handleCtrl(second) {
@@ -310,14 +356,7 @@
     const slice = toggle ? order.slice(lo, hi + 1) : i1 < i2 ? order.slice(i1 + 1, i2 + 1) : order.slice(i2, i1);
     const candidates = slice.filter((el) => el.matches(CHECKBOX_SELECTOR));
 
-    const b1 = getClickableBox(init.el);
-    const b2 = getClickableBox(second);
-    const rect = {
-      left: Math.min(b1.left, b2.left),
-      right: Math.max(b1.right, b2.right),
-      top: Math.min(b1.top, b2.top),
-      bottom: Math.max(b1.bottom, b2.bottom),
-    };
+    const rect = getRangeRect(init.el, second);
     const list = candidates.filter((el) => {
       if (el === init.el || el === second) return true;
       const box = getClickableBox(el);
@@ -388,7 +427,7 @@
       return;
     }
 
-    if (isPlainCtrl(e)) {
+    if (isPlainCtrl(e) || isDemoCtrl(e)) {
       if (handleCtrl(el)) {
         suppress(e);
         return;
@@ -416,7 +455,9 @@
       return;
     }
 
-    if (isPlainCtrl(e)) {
+    const demo = isDemoCtrl(e);
+    if (demo) showDemo(el);
+    if (isPlainCtrl(e) || demo) {
       if (handleCtrl(el)) {
         suppress(e);
         recorded.swallow = { el };
@@ -432,8 +473,15 @@
     if (e.isTrusted && recorded.swallow && isSpace(e)) suppress(e);
   }
 
+  function onMouseDown(e) {
+    if (!e.isTrusted || e.button !== 0 || !isDemoCtrl(e)) return;
+    const hit = findCheckbox(e);
+    if (hit) showDemo(hit.el);
+  }
+
   function onKeyUp(e) {
     if (!e.isTrusted || !isSpace(e)) return;
+    hideDemo();
     if (recorded.swallow) {
       suppress(e);
       // A keyboard-generated click (if any) fires synchronously after keyup, before this runs.
@@ -455,6 +503,9 @@
   }
 
   const opts = { capture: true };
+  window.addEventListener('mousedown', onMouseDown, opts);
+  window.addEventListener('mouseup', hideDemo, opts);
+  window.addEventListener('blur', hideDemo);
   window.addEventListener('click', onClick, opts);
   window.addEventListener('keydown', onKeyDown, opts);
   window.addEventListener('keypress', onKeyPress, opts);
